@@ -4,8 +4,9 @@ from shutil import move
 
 user = os.getenv('USER')
 
-#Directories
+#Downloads Folder
 root_dir = "C:\\Users\\{}\\Downloads".format(user)
+#Output Directories
 image_dir = "C:\\Users\\{}\\\Downloads\\Images Downloads".format(user)
 video_dir = "C:\\Users\\{}\\Downloads\\Video Downloads".format(user)
 audio_dir  = "C:\\Users\\{}\\Downloads\\Audio Downloads".format(user)
@@ -13,7 +14,7 @@ docs_dir = "C:\\Users\\{}\\Downloads\\Document Downloads".format(user)
 software_dir = "C:\\Users\\{}\\Downloads\\Executables Downloads".format(user)
 others_dir = "C:\\Users\\{}\\Documents\\Others Directory".format(user)
 
-#Extensions
+#File Extensions
 doc_types = ('.doc', '.docx', '.txt', '.pdf', '.xls', '.ppt', '.xlsx', '.pptx', '.zip', '.tsv', '.ics', '.apkg', '.ttf')
 vid_types = ('.mp4', '.m4v', '.vlc', '.mov', '.avi')
 audio_types = ('.mp3', '.wav')
@@ -25,7 +26,7 @@ folder_ext = (".dir")
 def get_non_hidden_files_except_current_file(root_dir):
     return [f for f in os.listdir(root_dir) if os.path.isfile(f) and not f.endswith(python_ext) and not f.endswith(folder_ext) and not f.__eq__(__file__)]
 
-#Main functions
+#Main loop
 def move_files(files):
   for file in files:
     # file moved and overwritten if already exists
